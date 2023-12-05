@@ -7,5 +7,5 @@ app
     port: env.PORT,
   })
   .then(() => {
-    console.log(` 🔥 HTTP Server on fire! 🔥`)
+    console.log(` 🔥 HTTP Server on fire! on port: ${env.PORT} 🔥`)
   })
