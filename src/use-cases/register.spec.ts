@@ -9,13 +9,13 @@ describe('Register', () => {
     const userRepository = new InMemoryUserRepository()
     const registerUseCase = new RegisterUseCase(userRepository)
 
-    expect(() => {
-      registerUseCase.execute({
-        name: 'Franklin Jorge',
-        email: 'franklin-jorge@example.com',
-        password: '123456',
-      })
-    }).not.toThrow()
+    const { user } = await registerUseCase.execute({
+      name: 'Franklin Jorge',
+      email: 'franklin-jorge@example.com',
+      password: '123456',
+    })
+
+    expect(user.id).toEqual(expect.any(String))
   })
 
   it('should hash user password upon registration', async () => {
