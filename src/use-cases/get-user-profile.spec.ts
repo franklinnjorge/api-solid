@@ -28,7 +28,7 @@ describe('Register', () => {
   })
 
   it('it should not be able to get a user profile with wrong id', async () => {
-    expect(async () => {
+    await expect(async () => {
       await sut.execute({
         userId: 'not-exists-id',
       })

@@ -11,11 +11,11 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(uuid())
-  email String  @unique
-  name  String?
+  id            String   @id @default(uuid())
+  email         String   @unique
+  name          String?
   password_hash String
-  created_at DateTime @default(now())
+  created_at    DateTime @default(now())
 
   checkIns CheckIn[]
 
@@ -23,14 +23,14 @@ model User {
 }
 
 model CheckIn {
-  id        String  @id @default(uuid())
-  createdAt DateTime @default(now())
+  id           String    @id @default(uuid())
+  created_at   DateTime  @default(now())
   validated_at DateTime?
 
-  user User @relation(fields: [user_id], references: [id])
+  user    User   @relation(fields: [user_id], references: [id])
   user_id String
 
-  gym Gym @relation(fields: [gym_id], references: [id])
+  gym    Gym    @relation(fields: [gym_id], references: [id])
   gym_id String
 
   @@map("check_ins")
