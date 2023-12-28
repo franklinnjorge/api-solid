@@ -2,12 +2,12 @@ import { InMemoryUserRepository } from '@/repositories/in-memory/in-memory-users
 import { hash } from 'bcryptjs'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { GetUserProfileUseCase } from './get-user-profile'
-import { ResourceNotFound } from './errors/resource-not-found'
+import { ResourceNotFoundError } from './errors/resource-not-found'
 
 let userRepository: InMemoryUserRepository
 let sut: GetUserProfileUseCase
 
-describe('Register', () => {
+describe('User Profile Use Case', () => {
   beforeEach(() => {
     userRepository = new InMemoryUserRepository()
     sut = new GetUserProfileUseCase(userRepository)
@@ -32,6 +32,6 @@ describe('Register', () => {
       await sut.execute({
         userId: 'not-exists-id',
       })
-    }).rejects.toBeInstanceOf(ResourceNotFound)
+    }).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 })
