@@ -1,7 +1,6 @@
 import { app } from '@/app'
 import request from 'supertest'
-import { describe, it, afterAll, beforeAll, expect } from 'vitest'
-import { a } from 'vitest/dist/suite-SvxfaIxW'
+import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 describe('Profile (e2e)', () => {
   beforeAll(async () => {
